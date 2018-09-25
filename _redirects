@@ -1,0 +1,9 @@
+# Redirect domain aliases to primary domain
+http://www.losbeekos.com/* https://www.losbeekos.nl/:splat 302!
+http://losbeekos.com/* https://www.losbeekos.nl/:splat 302!
+https://www.losbeekos.com/* https://www.losbeekos.nl/:splat 302!
+https://losbeekos.com/* https://www.losbeekos.nl/:splat 302!
+
+# Redirect default Netlify subdomain to primary domain
+http://losbeekos.netlify.com/* https://www.losbeekos.nl/:splat 301!
+https://losbeekos.netlify.com/* https://www.losbeekos.nl/:splat 301!
