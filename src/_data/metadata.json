@@ -1,0 +1,16 @@
+{
+  "title": "Losbeekos",
+  "url": "https://www.losbeekos.nl",
+  "description": "",
+  "feed": {
+    "subtitle": "",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "url": "https://losbeekos.nl/feed/feed.xml",
+    "id": "https://losbeekos.nl/"
+  },
+  "author": {
+    "name": "Jeroen van Beek",
+    "email": "losbeekos@gmail.com"
+  }
+}
