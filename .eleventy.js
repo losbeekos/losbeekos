@@ -55,6 +55,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/*.svg');
   eleventyConfig.addPassthroughCopy('src/*.xml');
   eleventyConfig.addPassthroughCopy('src/*.json');
+  eleventyConfig.addPassthroughCopy('src/*.txt');
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
