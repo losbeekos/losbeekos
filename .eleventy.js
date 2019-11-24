@@ -31,7 +31,7 @@ module.exports = function(eleventyConfig) {
       require('autoprefixer'),
       require('cssnano'),
     ])
-      .process(code, { from: './src/_includes/postcss/styles.css' })
+      .process(code, { from: './src/_includes/css/styles.css' })
       .then(function(result) {
         callback(null, result.css);
       });
