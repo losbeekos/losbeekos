@@ -6,13 +6,15 @@ const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const pluginNavigation = require('@11ty/eleventy-navigation');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
+const inclusiveLangPlugin = require('@11ty/eleventy-plugin-inclusive-language');
 const pluginPWA = require('eleventy-plugin-pwa');
-const CleanCSS = require('clean-css');
+const htmlmin = require('html-minifier');
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(inclusiveLangPlugin);
 
   if (target === 'build') {
     eleventyConfig.addPlugin(pluginPWA);
@@ -42,14 +44,22 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, n);
   });
 
-  eleventyConfig.addCollection('tagList', require('./_11ty/getTagList'));
+  eleventyConfig.addCollection('tagList', require('./utils/getTagList'));
 
-  eleventyConfig.addFilter('cssmin', function(code) {
-    return new CleanCSS({}).minify(code).styles;
+  eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
+    if (outputPath.endsWith('.html')) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+      });
+      return minified;
+    }
+
+    return content;
   });
 
   eleventyConfig.addPassthroughCopy('src/img');
-  eleventyConfig.addPassthroughCopy('src/css');
   eleventyConfig.addPassthroughCopy('src/*.png');
   eleventyConfig.addPassthroughCopy('src/*.ico');
   eleventyConfig.addPassthroughCopy('src/*.svg');
@@ -73,7 +83,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
       ready: function(err, browserSync) {
-        const content_404 = fs.readFileSync('_dist/404.html');
+        const content_404 = fs.readFileSync('dist/404.html');
 
         browserSync.addMiddleware('*', (req, res) => {
           // Provides the 404 content without redirect.
@@ -85,27 +95,16 @@ module.exports = function(eleventyConfig) {
   });
 
   return {
-    templateFormats: ['md', 'njk', 'html', 'liquid'],
-
-    // If your site lives in a different subdirectory, change this.
-    // Leading or trailing slashes are all normalized away, so don’t worry about those.
-
-    // If you don’t have a subdirectory, use "" or "/" (they do the same thing)
-    // This is only used for link URLs (it does not affect your file structure)
-    // You can also pass this in on the command line using `--pathprefix`
-
-    // pathPrefix: "/",
-
+    templateFormats: ['md', 'njk', '11ty.js'],
     markdownTemplateEngine: 'liquid',
     htmlTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
-
-    // These are all optional, defaults are shown:
+    passthroughFileCopy: true,
     dir: {
       input: 'src',
       includes: '_includes',
       data: '_data',
-      output: '_dist',
+      output: 'dist',
     },
   };
 };

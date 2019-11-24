@@ -1,0 +1,20 @@
+html {
+  /* Base */
+  --transition: all 0.2s ease-in-out;
+
+  /* Light theme */
+  --background: rgb(255, 255, 255);
+  --color: rgb(0, 0, 0);
+  --anchor-color: rgb(0, 0, 0);
+  --anchor-hover-color: rgb(68, 68, 68);
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  html {
+    --background: rgb(0, 0, 0);
+    --color: rgb(255, 255, 255);
+    --anchor-color: rgb(255, 255, 255);
+    --anchor-hover-color: rgb(238, 238, 238);
+  }
+}

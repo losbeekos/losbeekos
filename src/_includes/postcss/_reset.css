@@ -28,28 +28,32 @@ dd {
 
 body {
   min-height: 100vh;
+  line-height: 1.5;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
 }
 
+/* stylelint-disable no-duplicate-selectors */
 ul[class],
 ol[class] {
   list-style: none;
 }
+/* stylelint-enable no-duplicate-selectors */
 
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
+/* stylelint-disable selector-max-universal */
 article > * + * {
   margin-top: 1em;
 }
+/* stylelint-enable selector-max-universal */
 
 input,
 button,
@@ -60,9 +64,11 @@ select {
 
 @media (prefers-reduced-motion: reduce) {
   * {
+    /* stylelint-disable declaration-no-important */
+    transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+    /* stylelint-enable declaration-no-important */
   }
 }

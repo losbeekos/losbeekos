@@ -7,12 +7,6 @@
     "node": "^12.13.1",
     "npm": "^6.12.1"
   },
-  "scripts": {
-    "build": "eleventy",
-    "watch": "eleventy --watch",
-    "serve": "eleventy --serve",
-    "debug": "DEBUG=* eleventy"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/losbeekos/losbeekos.git"
@@ -26,6 +20,20 @@
   "bugs": {
     "url": "https://github.com/losbeekos/losbeekos/issues"
   },
+  "scripts": {
+    "build": "eleventy",
+    "watch": "eleventy --watch",
+    "serve": "eleventy --serve",
+    "debug": "DEBUG=* eleventy",
+    "stylelint": "stylelint 'src/**/*.css'"
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie > 10",
+    "not IE_Mob > 10",
+    "not dead",
+    "not OperaMini all"
+  ],
   "prettier": {
     "$schema": "http://json.schemastore.org/prettierrc",
     "arrowParens": "avoid",
@@ -44,12 +52,16 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.9.0",
     "@11ty/eleventy-navigation": "^0.1.1",
+    "@11ty/eleventy-plugin-inclusive-language": "^1.0.0",
     "@11ty/eleventy-plugin-rss": "^1.0.7",
     "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.3",
     "clean-css": "^4.2.1",
+    "cssnano": "^4.1.10",
     "eleventy-plugin-pwa": "^1.0.8",
+    "html-minifier": "^4.0.0",
     "luxon": "^1.12.0",
     "markdown-it": "^8.4.2",
-    "markdown-it-anchor": "^5.0.2"
+    "markdown-it-anchor": "^5.0.2",
+    "postcss-import": "^12.0.1",
   }
 }

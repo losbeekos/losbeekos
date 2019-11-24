@@ -1,5 +1,5 @@
-@import './reset.css';
-@import './config.css';
+@import '_reset.css';
+@import '_config.css';
 
 html {
   background: var(--background);
@@ -10,8 +10,8 @@ html {
 }
 
 a {
-  color: var(--anchor-color);
   transition: var(--transition);
+  color: var(--anchor-color);
 }
 
 a:hover,
