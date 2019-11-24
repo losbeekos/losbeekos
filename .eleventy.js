@@ -9,6 +9,7 @@ const markdownItAnchor = require('markdown-it-anchor');
 const inclusiveLangPlugin = require('@11ty/eleventy-plugin-inclusive-language');
 const pluginPWA = require('eleventy-plugin-pwa');
 const htmlmin = require('html-minifier');
+const postcss = require('postcss');
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -23,6 +24,18 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setDataDeepMerge(true);
 
   eleventyConfig.addLayoutAlias('post', 'layouts/post.njk');
+
+  eleventyConfig.addNunjucksAsyncFilter('postcss', function(code, callback) {
+    postcss([
+      require('postcss-import'),
+      require('autoprefixer'),
+      require('cssnano'),
+    ])
+      .process(code, { from: './src/_includes/postcss/styles.css' })
+      .then(function(result) {
+        callback(null, result.css);
+      });
+  });
 
   eleventyConfig.addFilter('readableDate', dateObj => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(
@@ -95,7 +108,7 @@ module.exports = function(eleventyConfig) {
   });
 
   return {
-    templateFormats: ['md', 'njk', '11ty.js'],
+    templateFormats: ['md', 'njk'],
     markdownTemplateEngine: 'liquid',
     htmlTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
