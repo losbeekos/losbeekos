@@ -1,7 +1,7 @@
 {
   "name": "losbeekos",
   "version": "0.0.1",
-  "description": "Personal blog.",
+  "description": "Personal blog of Jeroen van Beek, Dutch Front-End Developer.",
   "private": true,
   "engines": {
     "node": "^12.13.1",
