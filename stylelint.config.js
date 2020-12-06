@@ -44,10 +44,10 @@ module.exports = {
     ],
     'color-no-hex': true,
     'declaration-no-important': true,
-    'declaration-property-unit-whitelist': {
+    'declaration-property-unit-allowed-list': {
       'line-height': [''],
     },
-    'declaration-property-value-blacklist': {
+    'declaration-property-value-disallowed-list': {
       '/^transition/': ['/all/'],
       '/^background/': ['http:', 'https:'],
       '/^border/': ['none'],
