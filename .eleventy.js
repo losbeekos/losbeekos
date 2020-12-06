@@ -4,9 +4,10 @@ const fs = require('fs');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const pluginNavigation = require('@11ty/eleventy-navigation');
+const inclusiveLangPlugin = require('@11ty/eleventy-plugin-inclusive-language');
+const pluginLocalRespimg = require('eleventy-plugin-local-respimg');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
-const inclusiveLangPlugin = require('@11ty/eleventy-plugin-inclusive-language');
 const htmlmin = require('html-minifier');
 const postcss = require('postcss');
 
@@ -15,6 +16,30 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(inclusiveLangPlugin);
+  eleventyConfig.addPlugin(pluginLocalRespimg, {
+    folders: {
+      source: 'src',
+      output: 'dist',
+    },
+    images: {
+      resize: {
+        min: 250,
+        max: 1500,
+        step: 150,
+      },
+      hoistClasses: false,
+      gifToVideo: false,
+      sizes: '100vw',
+      lazy: true,
+      watch: {
+        src: 'images/**/*',
+      },
+      additional: [
+        // Globs of additional images to optimize (won't be resized)
+        // 'src/images/icons/**/*',
+      ],
+    },
+  });
 
   eleventyConfig.setDataDeepMerge(true);
 
