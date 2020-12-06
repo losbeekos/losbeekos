@@ -1,20 +1,37 @@
 html {
   /* Base */
+  --font-stack: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
+    'Helvetica Neue', arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
   --transition: all 0.2s ease-in-out;
 
+  /* Main */
+  --main-padding-x: 10vw;
+  --main-padding-y: 5vw;
+  --main-max-width: calc(37.5rem + var(--main-padding));
+
+  /* Colors */
+  --color-primary-h: 223;
+  --color-primary-s: 55%;
+  --color-primary-l: 35%;
+  --color-primary: hsl(
+    var(--color-primary-h),
+    var(--color-primary-s),
+    var(--color-primary-l)
+  );
+
   /* Light theme */
-  --background: rgb(255, 255, 255);
-  --color: rgb(0, 0, 0);
-  --anchor-color: rgb(0, 0, 0);
-  --anchor-hover-color: rgb(68, 68, 68);
+  --background: hsl(223, 55%, 98%);
+  --text-color: hsl(222, 55%, 5%);
+  --anchor-color: var(--color-primary);
+  --anchor-hover-color: var(--text-color);
 }
 
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
   html {
-    --background: rgb(0, 0, 0);
-    --color: rgb(255, 255, 255);
-    --anchor-color: rgb(255, 255, 255);
-    --anchor-hover-color: rgb(238, 238, 238);
+    --background: hsl(223, 55%, 6%);
+    --text-color: hsl(222, 55%, 95%);
+    --anchor-color: hsl(223, 55%, 90%);
   }
 }
