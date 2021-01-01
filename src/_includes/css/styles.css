@@ -1,5 +1,6 @@
 @import '_reset.css';
 @import '_config.css';
+@import '_fonts.css';
 
 html {
   background: var(--background);

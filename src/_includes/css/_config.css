@@ -1,8 +1,7 @@
 html {
   /* Base */
-  --font-stack: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
-    'Helvetica Neue', arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-stack: 'Ubuntu', -apple-system, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   --transition: all 0.2s ease-in-out;
 
   /* Main */

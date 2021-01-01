@@ -11,7 +11,7 @@ const markdownItAnchor = require('markdown-it-anchor');
 const htmlmin = require('html-minifier');
 const postcss = require('postcss');
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
@@ -45,14 +45,14 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addLayoutAlias('post', 'layouts/post.njk');
 
-  eleventyConfig.addNunjucksAsyncFilter('postcss', function(code, callback) {
+  eleventyConfig.addNunjucksAsyncFilter('postcss', function (code, callback) {
     postcss([
       require('postcss-import'),
       require('autoprefixer'),
       require('cssnano'),
     ])
       .process(code, { from: './src/_includes/css/styles.css' })
-      .then(function(result) {
+      .then(function (result) {
         callback(null, result.css);
       });
   });
@@ -79,7 +79,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addCollection('tagList', require('./utils/getTagList'));
 
-  eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
+  eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
     if (outputPath.endsWith('.html')) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
@@ -92,7 +92,8 @@ module.exports = function(eleventyConfig) {
     return content;
   });
 
-  eleventyConfig.addPassthroughCopy('src/img');
+  eleventyConfig.addPassthroughCopy('src/images');
+  eleventyConfig.addPassthroughCopy('src/fonts');
   eleventyConfig.addPassthroughCopy('src/*.png');
   eleventyConfig.addPassthroughCopy('src/*.ico');
   eleventyConfig.addPassthroughCopy('src/*.svg');
@@ -115,7 +116,7 @@ module.exports = function(eleventyConfig) {
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
-      ready: function(err, browserSync) {
+      ready: function (err, browserSync) {
         const content_404 = fs.readFileSync('dist/404.html');
 
         browserSync.addMiddleware('*', (req, res) => {

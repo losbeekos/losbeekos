@@ -1,0 +1,31 @@
+@font-face {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: normal;
+  font-display: fallback;
+  src: url('/fonts/ubuntu-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-display: fallback;
+  src: url('/fonts/ubuntu-medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: bold;
+  font-display: fallback;
+  src: url('/fonts/ubuntu-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: UbuntuMono;
+  font-style: normal;
+  font-weight: normal;
+  font-display: fallback;
+  src: url('/fonts/ubuntumono-regular.woff2') format('woff2');
+}
