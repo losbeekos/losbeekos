@@ -1,13 +1,17 @@
 <ol reversed class="list" style="counter-reset: start-from {{ postslist.length + 1 }}">
 {% for post in postslist | reverse %}
   <li class="list__item">
-    <article class="post-teaser">
+    <article>
       <header>
-        <h3><a href="{{ post.url | url }}" class="post-teaser__anchor">{% if post.data.title %}{{ post.data.title }}{% else %}{{ post.url }}{% endif %}</a></h3>
+        <h3>
+          <a href="{{ post.url | url }}">
+            {{ post.data.title }}
+          </a>
+        </h3>
       </header>
       <p>{{ post.data.description }}</p>
       <p>
-        <time class="post-teaser__date" datetime="{{ post.date | htmlDateString }}">
+        <time datetime="{{ post.date | htmlDateString }}">
           <small>{{ post.date | readableDate }}</small>
         </time>
       </p>
