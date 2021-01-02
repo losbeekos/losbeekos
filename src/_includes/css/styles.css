@@ -1,22 +1,28 @@
 @import '_reset.css';
 @import '_config.css';
 @import '_fonts.css';
+@import '_type.css';
+@import '_nav.css';
+@import '_list.css';
 
 html {
-  background: var(--background);
+  background: var(--background-alpha);
   color: var(--text-color);
   font-family: var(--font-stack);
+  font-size: clamp(16px);
 }
 
-main {
-  max-width: var(--main-max-width);
+body {
+  display: flex;
+  flex-flow: column;
+}
+
+.container {
+  width: 100%;
+  min-width: var(--container-min-width);
+  max-width: var(--container-max-width);
   margin-right: auto;
   margin-left: auto;
-  padding: var(--main-padding-y) var(--main-padding-x);
-}
-
-header {
-  padding: var(--main-padding-y) var(--main-padding-x);
 }
 
 a {
@@ -27,4 +33,40 @@ a {
 a:hover,
 a:focus {
   color: var(--anchor-hover-color);
+}
+
+.header,
+.main {
+  padding: var(--container-padding-y) var(--container-padding-x);
+}
+
+.header,
+.footer {
+  background-color: var(--background-beta);
+}
+
+.header h1 {
+  margin-bottom: 1vw;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 5vw var(--container-padding-x) 8rem;
+}
+
+.footer__container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 68em) {
+  .footer {
+    padding: 5vw var(--container-padding-x);
+  }
+}
+
+.max-width-600 {
+  max-width: 30rem;
 }

@@ -1,4 +1,19 @@
 ---
 layout: layouts/base.njk
 ---
-{{ content | safe }}
+
+<header class="header">
+  <div class="container">
+    <h1 class="max-width-600">{{ metadata.title }}</h1>
+    <p class="max-width-600">
+      {{ metadata.description }}
+      You can <a href="{{ 'https://twitter.com/losbeekos' | url }}">follow me on Twitter</a> or <a href="{{ 'https://www.linkedin.com/in/losbeekos/' | url }}">add me on Linkedin</a>.
+    </p>
+  </div>
+</header>
+
+<main class="main">
+  <div class="container">
+    {{ content | safe }}
+  </div>
+</main>

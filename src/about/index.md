@@ -1,8 +1,8 @@
 ---
 layout: layouts/post.njk
-title: About Me
+title: Who is this guy
 eleventyNavigation:
-  key: About Me
+  key: About
   order: 2
 ---
 

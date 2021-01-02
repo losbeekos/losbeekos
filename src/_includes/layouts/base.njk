@@ -23,27 +23,24 @@
     />
   </head>
   <body>
-    <header>
-      <h1 class="home">
-        <a href="{{ '/' | url }}">{{ metadata.title }}</a>
-      </h1>
-
+    <nav class="nav">
       {#- Read more about `eleventy-navigation` at https://github.com/11ty/eleventy-navigation #}
-      <nav>
-        {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
-          listClass: "nav",
-          listItemClass: "nav-item",
-          activeListItemClass: "nav-item-active",
-          activeKey: eleventyNavigation.key
-        }) | safe }}
-      </nav>
-    </header>
+      {{ collections.all | eleventyNavigation | eleventyNavigationToHtml({
+        listClass: "nav__list",
+        listItemClass: "nav__item",
+        anchorClass: 'nav__anchor',
+        activeAnchorClass: 'nav__anchor--active',
+        activeKey: eleventyNavigation.key
+      }) | safe }}
+    </nav>
 
-    <main {% if templateClass %} class="{{ templateClass }}" {% endif %}>
-      {{ content | safe }}
-    </main>
+    {{ content | safe }}
 
-    <footer></footer>
+    <footer class="footer">
+      <div class="container footer__container">
+        <p>Built with <a href="https://www.11ty.dev">Eleventy</a>.</p>
+      </div>
+    </footer>
 
     <script>
       window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;

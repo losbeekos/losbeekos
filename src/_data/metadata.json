@@ -1,9 +1,9 @@
 {
   "title": "Losbeekos",
-  "url": "https://www.losbeekos.nl",
-  "description": "Personal blog of Jeroen van Beek, Dutch Front-End Developer.",
+  "url": "https://losbeekos.nl",
+  "description": "Personal blog of Jeroen van Beek, a Front-end developer from the Netherlands.",
   "feed": {
-    "subtitle": "Personal blog of Jeroen van Beek, Dutch Front-End Developer.",
+    "subtitle": "Personal blog of Jeroen van Beek, a Front-end developer from the Netherlands.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "url": "https://losbeekos.nl/feed/feed.xml",

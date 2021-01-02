@@ -1,36 +1,43 @@
-html {
+:root {
+  /* 16px @ 800px increasing to 20px @ 1600px */
+  font-size: clamp(16px, calc(1rem + ((1vw - 8px) * 0.5)), 20px);
+
   /* Base */
   --font-stack: 'Ubuntu', -apple-system, 'Segoe UI', 'Roboto', 'Oxygen',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --transition: all 0.2s ease-in-out;
+  --transition: color 0.2s ease-in-out;
 
-  /* Main */
-  --main-padding-x: 10vw;
-  --main-padding-y: 5vw;
-  --main-max-width: calc(37.5rem + var(--main-padding));
+  /* Container */
+  --container-padding-x: 8vw;
+  --container-padding-y: 6vw;
+  --container-min-width: 20rem;
+  --container-max-width: 40rem;
 
   /* Colors */
-  --color-primary-h: 223;
-  --color-primary-s: 55%;
-  --color-primary-l: 35%;
-  --color-primary: hsl(
-    var(--color-primary-h),
-    var(--color-primary-s),
-    var(--color-primary-l)
+  --color-alpha-h: 223;
+  --color-alpha-s: 75%;
+  --color-alpha-s2: 55%;
+  --color-alpha-l: 38%;
+  --color-alpha: hsl(
+    var(--color-alpha-h),
+    var(--color-alpha-s),
+    var(--color-alpha-l)
   );
 
   /* Light theme */
-  --background: hsl(223, 55%, 98%);
-  --text-color: hsl(222, 55%, 5%);
-  --anchor-color: var(--color-primary);
+  --background-alpha: hsl(var(--color-alpha-h), var(--color-alpha-s2), 98%);
+  --background-beta: hsl(var(--color-alpha-h), var(--color-alpha-s2), 96%);
+  --text-color: hsl(var(--color-alpha-h), var(--color-alpha-s2), 5%);
+  --anchor-color: var(--color-alpha);
   --anchor-hover-color: var(--text-color);
 }
 
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
-  html {
-    --background: hsl(223, 55%, 6%);
-    --text-color: hsl(222, 55%, 95%);
-    --anchor-color: hsl(223, 55%, 90%);
+  :root {
+    --background-alpha: hsl(var(--color-alpha-h), var(--color-alpha-s2), 6%);
+    --background-beta: hsl(var(--color-alpha-h), var(--color-alpha-s2), 4%);
+    --text-color: hsl(var(--color-alpha-h), var(--color-alpha-s2), 95%);
+    --anchor-color: hsl(var(--color-alpha-h), var(--color-alpha-s2), 90%);
   }
 }
