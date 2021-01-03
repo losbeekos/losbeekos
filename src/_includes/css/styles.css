@@ -4,6 +4,8 @@
 @import '_type.css';
 @import '_nav.css';
 @import '_list.css';
+@import '_header.css';
+@import '_footer.css';
 
 html {
   background: var(--background-alpha);
@@ -17,14 +19,6 @@ body {
   flex-flow: column;
 }
 
-.container {
-  width: 100%;
-  min-width: var(--container-min-width);
-  max-width: var(--container-max-width);
-  margin-right: auto;
-  margin-left: auto;
-}
-
 a {
   transition: var(--transition);
   color: var(--anchor-color);
@@ -35,36 +29,16 @@ a:focus {
   color: var(--anchor-hover-color);
 }
 
-.header,
+.container {
+  width: 100%;
+  min-width: var(--container-min-width);
+  max-width: var(--container-max-width);
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .main {
   padding: var(--container-padding-y) var(--container-padding-x);
-}
-
-.header,
-.footer {
-  background-color: var(--background-beta);
-}
-
-.header h1 {
-  margin-bottom: 1vw;
-}
-
-.footer {
-  margin-top: auto;
-  padding: 5vw var(--container-padding-x) 8rem;
-}
-
-.footer__container {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-}
-
-@media screen and (min-width: 68em) {
-  .footer {
-    padding: 5vw var(--container-padding-x);
-  }
 }
 
 .max-width-600 {

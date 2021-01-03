@@ -1,0 +1,8 @@
+.header {
+  padding: var(--container-padding-y) var(--container-padding-x);
+  background-color: var(--background-beta);
+}
+
+.header p {
+  margin-top: 1vw;
+}
