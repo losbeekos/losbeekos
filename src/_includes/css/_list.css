@@ -1,10 +1,11 @@
 * + .list {
   margin-top: clamp(1rem, 4vw, 3rem);
+  padding-top: clamp(1rem, 4vw, 3rem);
+  border-top: var(--list-border);
 }
 
 .list__item:not(:last-child) {
   margin-bottom: clamp(1rem, 4vw, 3rem);
   padding-bottom: clamp(1rem, 4vw, 3rem);
-  border-bottom: 0.5rem solid
-    hsla(var(--color-alpha-h), var(--color-alpha-s2), var(--color-alpha-l), 0.1);
+  border-bottom: var(--list-border);
 }

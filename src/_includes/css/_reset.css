@@ -38,7 +38,7 @@ img {
 
 /* stylelint-disable selector-max-universal */
 article > * + * {
-  margin-top: 2vw;
+  margin-top: 1vw;
 }
 /* stylelint-enable selector-max-universal */
 

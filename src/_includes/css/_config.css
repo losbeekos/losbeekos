@@ -26,18 +26,22 @@
 
   /* Light theme */
   --background-alpha: hsl(var(--color-alpha-h), var(--color-alpha-s2), 98%);
-  --background-beta: hsl(var(--color-alpha-h), var(--color-alpha-s2), 96%);
+  --background-beta: hsl(var(--color-alpha-h), var(--color-alpha-s2), 97%);
   --text-color: hsl(var(--color-alpha-h), var(--color-alpha-s2), 5%);
   --anchor-color: var(--color-alpha);
   --anchor-hover-color: var(--text-color);
+
+  /* List */
+  --list-border: 0.1rem solid
+    hsla(var(--color-alpha-h), var(--color-alpha-s2), var(--color-alpha-l), 0.1);
 }
 
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-alpha: hsl(var(--color-alpha-h), var(--color-alpha-s2), 6%);
-    --background-beta: hsl(var(--color-alpha-h), var(--color-alpha-s2), 4%);
+    --background-alpha: hsl(var(--color-alpha-h), var(--color-alpha-s2), 5%);
+    --background-beta: hsl(var(--color-alpha-h), var(--color-alpha-s2), 6%);
     --text-color: hsl(var(--color-alpha-h), var(--color-alpha-s2), 95%);
-    --anchor-color: hsl(var(--color-alpha-h), var(--color-alpha-s2), 90%);
+    --anchor-color: hsl(var(--color-alpha-h), var(--color-alpha-s2), 80%);
   }
 }

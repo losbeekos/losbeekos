@@ -10,11 +10,11 @@
   border-radius: 0.5rem;
   background: hsla(
     var(--color-alpha-h),
-    var(--color-alpha-s2),
+    var(--color-alpha-s),
     var(--color-alpha-l),
-    0.9
+    0.8
   );
-  backdrop-filter: blur(0.2rem);
+  backdrop-filter: blur(0.4rem);
 }
 
 .nav__list {
@@ -43,12 +43,18 @@
 
 @media screen and (min-width: 68em) {
   .nav {
-    top: 3vw;
+    top: 2vw;
     bottom: inherit;
-    left: 3vw;
+    left: 2vw;
     width: auto;
     min-width: inherit;
     transform: translateX(0);
+    background: hsla(
+      var(--color-alpha-h),
+      var(--color-alpha-s),
+      var(--color-alpha-l),
+      0.7
+    );
   }
 
   .nav__list {
